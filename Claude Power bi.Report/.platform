@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Claude Power bi"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "98bc93b3-580b-4b04-96f8-a4f263cceb56"
+  }
+}

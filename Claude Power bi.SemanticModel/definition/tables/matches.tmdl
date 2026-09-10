@@ -1,0 +1,172 @@
+table matches
+	lineageTag: 438ba15e-4298-4ff5-8310-da43619ee524
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d625b1d-9a5b-4bdc-ba6c-b3b03f883485
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column season
+		dataType: int64
+		formatString: 0
+		lineageTag: a5ceb993-9131-47cc-b30d-9ce2f71910a9
+		summarizeBy: sum
+		sourceColumn: season
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 9f602b2d-b21e-4fd9-8624-8b123ba41cf0
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ff56a2e2-4e1e-40e8-953e-1a099a46fe91
+		summarizeBy: none
+		sourceColumn: date
+
+		variation Variation
+			isDefault
+			relationship: d57a636a-03a7-4f30-879c-de91eb26d529
+			defaultHierarchy: LocalDateTable_15845e65-6ccc-46f2-8873-6d43fe0aa9e8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column team1
+		dataType: string
+		lineageTag: 0c3d5c40-04c0-4c8d-9ff8-f4f684865751
+		summarizeBy: none
+		sourceColumn: team1
+
+		annotation SummarizationSetBy = Automatic
+
+	column team2
+		dataType: string
+		lineageTag: 3c86689b-4d2a-47d5-835b-5890ee46e522
+		summarizeBy: none
+		sourceColumn: team2
+
+		annotation SummarizationSetBy = Automatic
+
+	column toss_winner
+		dataType: string
+		lineageTag: a2da8b3b-fc57-410f-ae22-dc4367b872fb
+		summarizeBy: none
+		sourceColumn: toss_winner
+
+		annotation SummarizationSetBy = Automatic
+
+	column toss_decision
+		dataType: string
+		lineageTag: afd99af5-ab49-4eaf-9641-7b0d43ebe756
+		summarizeBy: none
+		sourceColumn: toss_decision
+
+		annotation SummarizationSetBy = Automatic
+
+	column result
+		dataType: string
+		lineageTag: 8d1595bf-919b-4202-b87f-0ed1b98fa1cb
+		summarizeBy: none
+		sourceColumn: result
+
+		annotation SummarizationSetBy = Automatic
+
+	column dl_applied
+		dataType: int64
+		formatString: 0
+		lineageTag: 95e83c7c-69a2-43ee-a248-bb7cad99032f
+		summarizeBy: sum
+		sourceColumn: dl_applied
+
+		annotation SummarizationSetBy = Automatic
+
+	column winner
+		dataType: string
+		lineageTag: 0d26b80c-04de-4822-aa75-5a095970cd43
+		summarizeBy: none
+		sourceColumn: winner
+
+		annotation SummarizationSetBy = Automatic
+
+	column win_by_runs
+		dataType: int64
+		formatString: 0
+		lineageTag: 27c68ea8-4f58-4336-81f0-8d1c017bb008
+		summarizeBy: sum
+		sourceColumn: win_by_runs
+
+		annotation SummarizationSetBy = Automatic
+
+	column win_by_wickets
+		dataType: int64
+		formatString: 0
+		lineageTag: c4b4b237-ff49-4e7e-bbdf-5a381d90cd1b
+		summarizeBy: sum
+		sourceColumn: win_by_wickets
+
+		annotation SummarizationSetBy = Automatic
+
+	column player_of_match
+		dataType: string
+		lineageTag: 54e080c6-66e2-4056-9f89-32be8f159c8a
+		summarizeBy: none
+		sourceColumn: player_of_match
+
+		annotation SummarizationSetBy = Automatic
+
+	column venue
+		dataType: string
+		lineageTag: 7b71dfaa-dc32-4f25-b566-4bfe70b9d68b
+		summarizeBy: none
+		sourceColumn: venue
+
+		annotation SummarizationSetBy = Automatic
+
+	column umpire1
+		dataType: string
+		lineageTag: ed994fc4-fe20-4fcc-8889-6e0c60df132f
+		summarizeBy: none
+		sourceColumn: umpire1
+
+		annotation SummarizationSetBy = Automatic
+
+	column umpire2
+		dataType: string
+		lineageTag: 40fe7b63-4896-4b21-a8e4-fde194c2daad
+		summarizeBy: none
+		sourceColumn: umpire2
+
+		annotation SummarizationSetBy = Automatic
+
+	column umpire3
+		dataType: string
+		lineageTag: b7fb437e-7222-4959-9fe7-42554a56d97c
+		summarizeBy: none
+		sourceColumn: umpire3
+
+		annotation SummarizationSetBy = Automatic
+
+	partition matches = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\aalgo\Downloads\matches.csv"), [Delimiter = ",", Columns = 18, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"id", Int64.Type}, {"season", Int64.Type}, {"city", type text}, {"date", type date}, {"team1", type text}, {"team2", type text}, {"toss_winner", type text}, {"toss_decision", type text}, {"result", type text}, {"dl_applied", Int64.Type}, {"winner", type text}, {"win_by_runs", Int64.Type}, {"win_by_wickets", Int64.Type}, {"player_of_match", type text}, {"venue", type text}, {"umpire1", type text}, {"umpire2", type text}, {"umpire3", type text}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+
