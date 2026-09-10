@@ -153,6 +153,43 @@ table matches
 
 		annotation SummarizationSetBy = Automatic
 
+	measure 'Total Runs' = SUM(matches[win_by_runs])
+		formatString: #,0
+
+	measure 'Average Runs' = AVERAGE(matches[win_by_runs])
+		formatString: #,0.00
+
+	measure 'Total Matches' = COUNTROWS(matches)
+		formatString: #,0
+
+	measure 'Most Winning Team' =
+			VAR WinCount =
+			    ADDCOLUMNS(
+			        VALUES(matches[winner]),
+			        "WinCount", CALCULATE(COUNTROWS(matches))
+			    )
+			VAR MaxWins = MAXX(WinCount, [WinCount])
+			VAR TopTeam =
+			    MAXX(
+			        FILTER(WinCount, [WinCount] = MaxWins),
+			        matches[winner]
+			    )
+			RETURN
+			    TopTeam
+
+	measure 'Championship Count' =
+			VAR TeamName = SELECTEDVALUE(matches[winner])
+			RETURN
+			    IF(
+			        NOT ISBLANK(TeamName),
+			        CALCULATE(
+			            COUNTROWS(matches),
+			            matches[winner] = TeamName
+			        ),
+			        BLANK()
+			    )
+		formatString: #,0
+
 	partition matches = m
 		mode: import
 		source =
