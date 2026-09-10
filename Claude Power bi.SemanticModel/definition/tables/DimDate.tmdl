@@ -1,0 +1,144 @@
+table DimDate
+	lineageTag: d1d1d1d1-d1d1-d1d1-d1d1-d1d1d1d1d1d1
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Short Date
+		lineageTag: d2d2d2d2-d2d2-d2d2-d2d2-d2d2d2d2d2d2
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: d3d3d3d3-d3d3-d3d3-d3d3-d3d3d3d3d3d3
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: d4d4d4d4-d4d4-d4d4-d4d4-d4d4d4d4d4d4
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterName
+		dataType: string
+		lineageTag: d5d5d5d5-d5d5-d5d5-d5d5-d5d5d5d5d5d5
+		summarizeBy: none
+		sourceColumn: QuarterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: d6d6d6d6-d6d6-d6d6-d6d6-d6d6d6d6d6d6
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: d7d7d7d7-d7d7-d7d7-d7d7-d7d7d7d7d7d7
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthYear
+		dataType: string
+		lineageTag: d8d8d8d8-d8d8-d8d8-d8d8-d8d8d8d8d8d8
+		summarizeBy: none
+		sourceColumn: MonthYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: d9d9d9d9-d9d9-d9d9-d9d9-d9d9d9d9d9d9
+		summarizeBy: none
+		sourceColumn: DayOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayName
+		dataType: string
+		lineageTag: dadadada-dada-dada-dada-dadadadadada
+		summarizeBy: none
+		sourceColumn: DayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: dbdbdbdb-dbdb-dbdb-dbdb-dbdbdbdbdbdb
+		summarizeBy: none
+		sourceColumn: DayOfMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: dcdcdcdc-dcdc-dcdc-dcdc-dcdcdcdcdcdc
+		summarizeBy: none
+		sourceColumn: DayOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: dddddddd-dddd-dddd-dddd-dddddddddddd
+		summarizeBy: none
+		sourceColumn: WeekOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWeekend
+		dataType: boolean
+		formatString: """Yes"";""Yes"";""No"""
+		lineageTag: dededede-dede-dede-dede-dededededede
+		summarizeBy: none
+		sourceColumn: IsWeekend
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = m
+		mode: import
+		source =
+				let
+				  StartDate = #date(2016, 1, 1),
+				  EndDate = #date(2029, 12, 31),
+				  NumberOfDays = Duration.Days(EndDate - StartDate) + 1,
+				  Dates = List.Dates(StartDate, NumberOfDays, #duration(1, 0, 0, 0)),
+				  #"Converted to Table" = Table.FromList(Dates, Splitter.SplitByNothing(), {"Date"}, null, ExtraValues.Error),
+				  #"Changed Type" = Table.TransformColumnTypes(#"Converted to Table", {{"Date", type date}}),
+				  #"Added Year" = Table.AddColumn(#"Changed Type", "Year", each Date.Year([Date]), Int64.Type),
+				  #"Added Quarter" = Table.AddColumn(#"Added Year", "Quarter", each Date.QuarterOfYear([Date]), Int64.Type),
+				  #"Added QuarterName" = Table.AddColumn(#"Added Quarter", "QuarterName", each "Q" & Number.ToText([Quarter]) & " " & Number.ToText([Year]), type text),
+				  #"Added Month" = Table.AddColumn(#"Added QuarterName", "Month", each Date.Month([Date]), Int64.Type),
+				  #"Added MonthName" = Table.AddColumn(#"Added Month", "MonthName", each Date.MonthName([Date]), type text),
+				  #"Added MonthYear" = Table.AddColumn(#"Added MonthName", "MonthYear", each Date.ToText([Date], "MMM yyyy"), type text),
+				  #"Added DayOfWeek" = Table.AddColumn(#"Added MonthYear", "DayOfWeek", each Date.DayOfWeek([Date], Day.Monday) + 1, Int64.Type),
+				  #"Added DayName" = Table.AddColumn(#"Added DayOfWeek", "DayName", each Date.DayOfWeekName([Date]), type text),
+				  #"Added DayOfMonth" = Table.AddColumn(#"Added DayName", "DayOfMonth", each Date.Day([Date]), Int64.Type),
+				  #"Added DayOfYear" = Table.AddColumn(#"Added DayOfMonth", "DayOfYear", each Date.DayOfYear([Date]), Int64.Type),
+				  #"Added WeekOfYear" = Table.AddColumn(#"Added DayOfYear", "WeekOfYear", each Date.WeekOfYear([Date]), Int64.Type),
+				  #"Added IsWeekend" = Table.AddColumn(#"Added WeekOfYear", "IsWeekend", each if [DayOfWeek] >= 6 then true else false, type logical)
+				in
+				  #"Added IsWeekend"
+
+	annotation PBI_ResultType = Table
+

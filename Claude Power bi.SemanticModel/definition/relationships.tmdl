@@ -1,5 +1,9 @@
-relationship d57a636a-03a7-4f30-879c-de91eb26d529
+relationship 70707070-7070-7070-7070-707070707070
+	fromColumn: deliveries.match_id
+	toColumn: matches.id
+
+relationship 80808080-8080-8080-8080-808080808080
 	joinOnDateBehavior: datePartOnly
 	fromColumn: matches.date
-	toColumn: LocalDateTable_15845e65-6ccc-46f2-8873-6d43fe0aa9e8.Date
+	toColumn: DimDate.Date
 

@@ -1,0 +1,196 @@
+table deliveries
+	lineageTag: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+
+	column match_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 11111111-1111-1111-1111-111111111111
+		summarizeBy: none
+		sourceColumn: match_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column inning
+		dataType: int64
+		formatString: 0
+		lineageTag: 22222222-2222-2222-2222-222222222222
+		summarizeBy: none
+		sourceColumn: inning
+
+		annotation SummarizationSetBy = Automatic
+
+	column batting_team
+		dataType: string
+		lineageTag: 33333333-3333-3333-3333-333333333333
+		summarizeBy: none
+		sourceColumn: batting_team
+
+		annotation SummarizationSetBy = Automatic
+
+	column bowling_team
+		dataType: string
+		lineageTag: 44444444-4444-4444-4444-444444444444
+		summarizeBy: none
+		sourceColumn: bowling_team
+
+		annotation SummarizationSetBy = Automatic
+
+	column over
+		dataType: int64
+		formatString: 0
+		lineageTag: 55555555-5555-5555-5555-555555555555
+		summarizeBy: none
+		sourceColumn: over
+
+		annotation SummarizationSetBy = Automatic
+
+	column ball
+		dataType: int64
+		formatString: 0
+		lineageTag: 66666666-6666-6666-6666-666666666666
+		summarizeBy: none
+		sourceColumn: ball
+
+		annotation SummarizationSetBy = Automatic
+
+	column batsman
+		dataType: string
+		lineageTag: 77777777-7777-7777-7777-777777777777
+		summarizeBy: none
+		sourceColumn: batsman
+
+		annotation SummarizationSetBy = Automatic
+
+	column non_striker
+		dataType: string
+		lineageTag: 88888888-8888-8888-8888-888888888888
+		summarizeBy: none
+		sourceColumn: non_striker
+
+		annotation SummarizationSetBy = Automatic
+
+	column bowler
+		dataType: string
+		lineageTag: 99999999-9999-9999-9999-999999999999
+		summarizeBy: none
+		sourceColumn: bowler
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_super_over
+		dataType: int64
+		formatString: 0
+		lineageTag: aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+		summarizeBy: none
+		sourceColumn: is_super_over
+
+		annotation SummarizationSetBy = Automatic
+
+	column wide_runs
+		dataType: int64
+		formatString: 0
+		lineageTag: bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+		summarizeBy: sum
+		sourceColumn: wide_runs
+
+		annotation SummarizationSetBy = Automatic
+
+	column bye_runs
+		dataType: int64
+		formatString: 0
+		lineageTag: cccccccc-cccc-cccc-cccc-cccccccccccc
+		summarizeBy: sum
+		sourceColumn: bye_runs
+
+		annotation SummarizationSetBy = Automatic
+
+	column legbye_runs
+		dataType: int64
+		formatString: 0
+		lineageTag: dddddddd-dddd-dddd-dddd-dddddddddddd
+		summarizeBy: sum
+		sourceColumn: legbye_runs
+
+		annotation SummarizationSetBy = Automatic
+
+	column noball_runs
+		dataType: int64
+		formatString: 0
+		lineageTag: eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee
+		summarizeBy: sum
+		sourceColumn: noball_runs
+
+		annotation SummarizationSetBy = Automatic
+
+	column penalty_runs
+		dataType: int64
+		formatString: 0
+		lineageTag: ffffffff-ffff-ffff-ffff-ffffffffffff
+		summarizeBy: sum
+		sourceColumn: penalty_runs
+
+		annotation SummarizationSetBy = Automatic
+
+	column batsman_runs
+		dataType: int64
+		formatString: 0
+		lineageTag: 10101010-1010-1010-1010-101010101010
+		summarizeBy: sum
+		sourceColumn: batsman_runs
+
+		annotation SummarizationSetBy = Automatic
+
+	column extra_runs
+		dataType: int64
+		formatString: 0
+		lineageTag: 20202020-2020-2020-2020-202020202020
+		summarizeBy: sum
+		sourceColumn: extra_runs
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_runs
+		dataType: int64
+		formatString: 0
+		lineageTag: 30303030-3030-3030-3030-303030303030
+		summarizeBy: sum
+		sourceColumn: total_runs
+
+		annotation SummarizationSetBy = Automatic
+
+	column player_dismissed
+		dataType: string
+		lineageTag: 40404040-4040-4040-4040-404040404040
+		summarizeBy: none
+		sourceColumn: player_dismissed
+
+		annotation SummarizationSetBy = Automatic
+
+	column dismissal_kind
+		dataType: string
+		lineageTag: 50505050-5050-5050-5050-505050505050
+		summarizeBy: none
+		sourceColumn: dismissal_kind
+
+		annotation SummarizationSetBy = Automatic
+
+	column fielder
+		dataType: string
+		lineageTag: 60606060-6060-6060-6060-606060606060
+		summarizeBy: none
+		sourceColumn: fielder
+
+		annotation SummarizationSetBy = Automatic
+
+	partition deliveries = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\aalgo\Downloads\deliveries.csv"), [Delimiter = ",", Columns = 21, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"match_id", Int64.Type}, {"inning", Int64.Type}, {"batting_team", type text}, {"bowling_team", type text}, {"over", Int64.Type}, {"ball", Int64.Type}, {"batsman", type text}, {"non_striker", type text}, {"bowler", type text}, {"is_super_over", Int64.Type}, {"wide_runs", Int64.Type}, {"bye_runs", Int64.Type}, {"legbye_runs", Int64.Type}, {"noball_runs", Int64.Type}, {"penalty_runs", Int64.Type}, {"batsman_runs", Int64.Type}, {"extra_runs", Int64.Type}, {"total_runs", Int64.Type}, {"player_dismissed", type text}, {"dismissal_kind", type text}, {"fielder", type text}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+
