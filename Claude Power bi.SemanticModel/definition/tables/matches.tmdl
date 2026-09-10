@@ -1,6 +1,48 @@
 table matches
 	lineageTag: 438ba15e-4298-4ff5-8310-da43619ee524
 
+	measure 'Total Runs' = SUM(matches[win_by_runs])
+		formatString: #,0
+		lineageTag: 200fe33f-7007-4fd2-b680-65e396f1ed29
+
+	measure 'Average Runs' = AVERAGE(matches[win_by_runs])
+		formatString: #,0.00
+		lineageTag: b82efe2e-a1a8-4ae2-b137-9831006c1801
+
+	measure 'Total Matches' = COUNTROWS(matches)
+		formatString: #,0
+		lineageTag: d6c35d32-315f-4bec-ac9d-cab6d1215d35
+
+	measure 'Most Winning Team' =
+			VAR WinCount =
+			    ADDCOLUMNS(
+			        VALUES(matches[winner]),
+			        "WinCount", CALCULATE(COUNTROWS(matches))
+			    )
+			VAR MaxWins = MAXX(WinCount, [WinCount])
+			VAR TopTeam =
+			    MAXX(
+			        FILTER(WinCount, [WinCount] = MaxWins),
+			        matches[winner]
+			    )
+			RETURN
+			    TopTeam
+		lineageTag: 4e5643f4-0459-40c0-a11c-7936d2cc1719
+
+	measure 'Championship Count' =
+			VAR TeamName = SELECTEDVALUE(matches[winner])
+			RETURN
+			    IF(
+			        NOT ISBLANK(TeamName),
+			        CALCULATE(
+			            COUNTROWS(matches),
+			            matches[winner] = TeamName
+			        ),
+			        BLANK()
+			    )
+		formatString: #,0
+		lineageTag: 1d5c4e2b-4bac-4849-8045-7d5e3750e4b3
+
 	column id
 		dataType: int64
 		formatString: 0
@@ -152,43 +194,6 @@ table matches
 		sourceColumn: umpire3
 
 		annotation SummarizationSetBy = Automatic
-
-	measure 'Total Runs' = SUM(matches[win_by_runs])
-		formatString: #,0
-
-	measure 'Average Runs' = AVERAGE(matches[win_by_runs])
-		formatString: #,0.00
-
-	measure 'Total Matches' = COUNTROWS(matches)
-		formatString: #,0
-
-	measure 'Most Winning Team' =
-			VAR WinCount =
-			    ADDCOLUMNS(
-			        VALUES(matches[winner]),
-			        "WinCount", CALCULATE(COUNTROWS(matches))
-			    )
-			VAR MaxWins = MAXX(WinCount, [WinCount])
-			VAR TopTeam =
-			    MAXX(
-			        FILTER(WinCount, [WinCount] = MaxWins),
-			        matches[winner]
-			    )
-			RETURN
-			    TopTeam
-
-	measure 'Championship Count' =
-			VAR TeamName = SELECTEDVALUE(matches[winner])
-			RETURN
-			    IF(
-			        NOT ISBLANK(TeamName),
-			        CALCULATE(
-			            COUNTROWS(matches),
-			            matches[winner] = TeamName
-			        ),
-			        BLANK()
-			    )
-		formatString: #,0
 
 	partition matches = m
 		mode: import

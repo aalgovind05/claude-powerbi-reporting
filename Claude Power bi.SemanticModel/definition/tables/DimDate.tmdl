@@ -9,13 +9,20 @@ table DimDate
 		summarizeBy: none
 		sourceColumn: Date
 
+		variation Variation
+			isDefault
+			relationship: 306879c3-a837-4b74-9fb8-546a3ae3a178
+			defaultHierarchy: LocalDateTable_b8fbc639-b2d3-49c4-a3d6-e0eeb3db28be.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column Year
 		dataType: int64
 		formatString: 0
 		lineageTag: d3d3d3d3-d3d3-d3d3-d3d3-d3d3d3d3d3d3
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Year
 
 		annotation SummarizationSetBy = Automatic
@@ -24,7 +31,7 @@ table DimDate
 		dataType: int64
 		formatString: 0
 		lineageTag: d4d4d4d4-d4d4-d4d4-d4d4-d4d4d4d4d4d4
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Quarter
 
 		annotation SummarizationSetBy = Automatic
@@ -41,7 +48,7 @@ table DimDate
 		dataType: int64
 		formatString: 0
 		lineageTag: d6d6d6d6-d6d6-d6d6-d6d6-d6d6d6d6d6d6
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Month
 
 		annotation SummarizationSetBy = Automatic
@@ -66,7 +73,7 @@ table DimDate
 		dataType: int64
 		formatString: 0
 		lineageTag: d9d9d9d9-d9d9-d9d9-d9d9-d9d9d9d9d9d9
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: DayOfWeek
 
 		annotation SummarizationSetBy = Automatic
@@ -83,7 +90,7 @@ table DimDate
 		dataType: int64
 		formatString: 0
 		lineageTag: dbdbdbdb-dbdb-dbdb-dbdb-dbdbdbdbdbdb
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: DayOfMonth
 
 		annotation SummarizationSetBy = Automatic
@@ -92,7 +99,7 @@ table DimDate
 		dataType: int64
 		formatString: 0
 		lineageTag: dcdcdcdc-dcdc-dcdc-dcdc-dcdcdcdcdcdc
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: DayOfYear
 
 		annotation SummarizationSetBy = Automatic
@@ -101,7 +108,7 @@ table DimDate
 		dataType: int64
 		formatString: 0
 		lineageTag: dddddddd-dddd-dddd-dddd-dddddddddddd
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: WeekOfYear
 
 		annotation SummarizationSetBy = Automatic

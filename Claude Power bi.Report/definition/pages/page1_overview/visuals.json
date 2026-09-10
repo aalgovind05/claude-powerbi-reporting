@@ -1,0 +1,102 @@
+{
+  "textboxes": [
+    {
+      "x": 40,
+      "y": 20,
+      "width": 800,
+      "height": 80,
+      "id": 0,
+      "text": "Cricket Match Overview Dashboard"
+    }
+  ],
+  "slicers": [
+    {
+      "x": 40,
+      "y": 120,
+      "width": 250,
+      "height": 150,
+      "id": 1,
+      "field": "season",
+      "label": "Season"
+    },
+    {
+      "x": 310,
+      "y": 120,
+      "width": 250,
+      "height": 150,
+      "id": 2,
+      "field": "city",
+      "label": "City"
+    },
+    {
+      "x": 580,
+      "y": 120,
+      "width": 250,
+      "height": 150,
+      "id": 3,
+      "field": "winner",
+      "label": "Team"
+    }
+  ],
+  "cards": [
+    {
+      "x": 40,
+      "y": 300,
+      "width": 350,
+      "height": 180,
+      "id": 4,
+      "measure": "Total Matches"
+    },
+    {
+      "x": 410,
+      "y": 300,
+      "width": 350,
+      "height": 180,
+      "id": 5,
+      "measure": "Total Runs"
+    },
+    {
+      "x": 780,
+      "y": 300,
+      "width": 350,
+      "height": 180,
+      "id": 6,
+      "measure": "Average Runs"
+    }
+  ],
+  "charts": [
+    {
+      "x": 40,
+      "y": 510,
+      "width": 550,
+      "height": 520,
+      "id": 7,
+      "type": "clusteredColumnChart",
+      "category": "season",
+      "values": ["Total Matches"],
+      "title": "Matches by Season"
+    },
+    {
+      "x": 610,
+      "y": 510,
+      "width": 550,
+      "height": 520,
+      "id": 8,
+      "type": "barChart",
+      "category": "winner",
+      "values": ["Championship Count"],
+      "title": "Top Winning Teams"
+    }
+  ],
+  "tables": [
+    {
+      "x": 1180,
+      "y": 300,
+      "width": 700,
+      "height": 730,
+      "id": 9,
+      "columns": ["season", "winner", "Total Matches", "venue"],
+      "title": "Match Details"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "page2_performance",
+  "displayName": "Team Performance",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "visualContainers": [
+    {
+      "x": 40,
+      "y": 120,
+      "z": 900,
+      "width": 280,
+      "height": 150,
+      "config": "{\"name\": \"slicer_winner\", \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"matches.winner\"}]}, \"vcObjects\": {\"data\": [{\"properties\": {\"mode\": {\"solid\": {\"value\": \"'Dropdown'\"}}}}], \"header\": [{\"properties\": {\"show\": {\"solid\": {\"value\": \"true\"}}, \"title\": {\"solid\": {\"value\": \"'Select Team'\"}}}}]}}, \"query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"winner\"}, \"Name\": \"matches.winner\"}]}}",
+      "filters": "[]",
+      "query": "{\"Commands\": [{\"SemanticQueryDataShapeCommand\": {\"Query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"winner\"}, \"Name\": \"matches.winner\"}]}, \"Binding\": {}}}]}"
+    },
+    {
+      "x": 340,
+      "y": 120,
+      "z": 899,
+      "width": 280,
+      "height": 150,
+      "config": "{\"name\": \"slicer_venue\", \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"matches.venue\"}]}, \"vcObjects\": {\"data\": [{\"properties\": {\"mode\": {\"solid\": {\"value\": \"'Dropdown'\"}}}}], \"header\": [{\"properties\": {\"show\": {\"solid\": {\"value\": \"true\"}}, \"title\": {\"solid\": {\"value\": \"'Venue'\"}}}}]}}, \"query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"venue\"}, \"Name\": \"matches.venue\"}]}}",
+      "filters": "[]",
+      "query": "{\"Commands\": [{\"SemanticQueryDataShapeCommand\": {\"Query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"venue\"}, \"Name\": \"matches.venue\"}]}, \"Binding\": {}}}]}"
+    },
+    {
+      "x": 640,
+      "y": 120,
+      "z": 898,
+      "width": 280,
+      "height": 150,
+      "config": "{\"name\": \"slicer_toss_decision\", \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"matches.toss_decision\"}]}, \"vcObjects\": {\"data\": [{\"properties\": {\"mode\": {\"solid\": {\"value\": \"'Dropdown'\"}}}}], \"header\": [{\"properties\": {\"show\": {\"solid\": {\"value\": \"true\"}}, \"title\": {\"solid\": {\"value\": \"'Toss Decision'\"}}}}]}}, \"query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"toss_decision\"}, \"Name\": \"matches.toss_decision\"}]}}",
+      "filters": "[]",
+      "query": "{\"Commands\": [{\"SemanticQueryDataShapeCommand\": {\"Query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"toss_decision\"}, \"Name\": \"matches.toss_decision\"}]}, \"Binding\": {}}}]}"
+    },
+    {
+      "x": 40,
+      "y": 300,
+      "z": 800,
+      "width": 420,
+      "height": 180,
+      "config": "{\"name\": \"card_championship_count\", \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"matches.Championship Count\"}]}, \"vcObjects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"solid\": {\"value\": \"48\"}}, \"fontFamily\": {\"solid\": {\"value\": \"'Segoe UI'\"}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"solid\": {\"value\": \"true\"}}, \"fontSize\": {\"solid\": {\"value\": \"14\"}}}}]}}, \"query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Championship Count\"}, \"Name\": \"matches.Championship Count\"}]}}",
+      "filters": "[]",
+      "query": "{\"Commands\": [{\"SemanticQueryDataShapeCommand\": {\"Query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Championship Count\"}, \"Name\": \"matches.Championship Count\"}]}, \"Binding\": {}}}]}"
+    },
+    {
+      "x": 480,
+      "y": 300,
+      "z": 799,
+      "width": 420,
+      "height": 180,
+      "config": "{\"name\": \"card_most_winning_team\", \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"matches.Most Winning Team\"}]}, \"vcObjects\": {\"labels\": [{\"properties\": {\"fontSize\": {\"solid\": {\"value\": \"48\"}}, \"fontFamily\": {\"solid\": {\"value\": \"'Segoe UI'\"}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"solid\": {\"value\": \"true\"}}, \"fontSize\": {\"solid\": {\"value\": \"14\"}}}}]}}, \"query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Most Winning Team\"}, \"Name\": \"matches.Most Winning Team\"}]}}",
+      "filters": "[]",
+      "query": "{\"Commands\": [{\"SemanticQueryDataShapeCommand\": {\"Query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Most Winning Team\"}, \"Name\": \"matches.Most Winning Team\"}]}, \"Binding\": {}}}]}"
+    },
+    {
+      "x": 40,
+      "y": 510,
+      "z": 700,
+      "width": 550,
+      "height": 520,
+      "config": "{\"name\": \"chart_win_margins_by_team\", \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"matches.winner\"}], \"Y\": [{\"queryRef\": \"matches.Total Runs\"}, {\"queryRef\": \"matches.win_by_wickets\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"solid\": {\"value\": \"true\"}}, \"text\": {\"solid\": {\"value\": \"'Win Margins by Team'\"}}, \"fontSize\": {\"solid\": {\"value\": \"14\"}}, \"fontFamily\": {\"solid\": {\"value\": \"'Segoe UI'\"}}}}]}}, \"query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"winner\"}, \"Name\": \"matches.winner\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Total Runs\"}, \"Name\": \"matches.Total Runs\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"win_by_wickets\"}, \"Name\": \"matches.win_by_wickets\"}]}}",
+      "filters": "[]",
+      "query": "{\"Commands\": [{\"SemanticQueryDataShapeCommand\": {\"Query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"winner\"}, \"Name\": \"matches.winner\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Total Runs\"}, \"Name\": \"matches.Total Runs\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"win_by_wickets\"}, \"Name\": \"matches.win_by_wickets\"}]}, \"Binding\": {}}}]}"
+    },
+    {
+      "x": 610,
+      "y": 510,
+      "z": 699,
+      "width": 550,
+      "height": 520,
+      "config": "{\"name\": \"chart_toss_decision_impact\", \"singleVisual\": {\"visualType\": \"pieChart\", \"projections\": {\"Category\": [{\"queryRef\": \"matches.toss_decision\"}], \"Values\": [{\"queryRef\": \"matches.Total Matches\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"solid\": {\"value\": \"true\"}}, \"text\": {\"solid\": {\"value\": \"'Toss Decision Impact'\"}}, \"fontSize\": {\"solid\": {\"value\": \"14\"}}, \"fontFamily\": {\"solid\": {\"value\": \"'Segoe UI'\"}}}}]}}, \"query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"toss_decision\"}, \"Name\": \"matches.toss_decision\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Total Matches\"}, \"Name\": \"matches.Total Matches\"}]}}",
+      "filters": "[]",
+      "query": "{\"Commands\": [{\"SemanticQueryDataShapeCommand\": {\"Query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"toss_decision\"}, \"Name\": \"matches.toss_decision\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Total Matches\"}, \"Name\": \"matches.Total Matches\"}]}, \"Binding\": {}}}]}"
+    },
+    {
+      "x": 1180,
+      "y": 300,
+      "z": 650,
+      "width": 700,
+      "height": 380,
+      "config": "{\"name\": \"chart_top_10_venues\", \"singleVisual\": {\"visualType\": \"barChart\", \"projections\": {\"Category\": [{\"queryRef\": \"matches.venue\"}], \"Y\": [{\"queryRef\": \"matches.Total Matches\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"solid\": {\"value\": \"true\"}}, \"text\": {\"solid\": {\"value\": \"'Top 10 Venues'\"}}, \"fontSize\": {\"solid\": {\"value\": \"14\"}}, \"fontFamily\": {\"solid\": {\"value\": \"'Segoe UI'\"}}}}]}}, \"query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"venue\"}, \"Name\": \"matches.venue\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Total Matches\"}, \"Name\": \"matches.Total Matches\"}]}}",
+      "filters": "[]",
+      "query": "{\"Commands\": [{\"SemanticQueryDataShapeCommand\": {\"Query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"venue\"}, \"Name\": \"matches.venue\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Total Matches\"}, \"Name\": \"matches.Total Matches\"}]}, \"Binding\": {}}}]}"
+    },
+    {
+      "x": 1180,
+      "y": 700,
+      "z": 649,
+      "width": 700,
+      "height": 330,
+      "config": "{\"name\": \"table_top_players\", \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"matches.player_of_match\"}, {\"queryRef\": \"matches.Total Matches\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"solid\": {\"value\": \"true\"}}, \"text\": {\"solid\": {\"value\": \"'Top Players'\"}}, \"fontSize\": {\"solid\": {\"value\": \"14\"}}}}], \"grid\": [{\"properties\": {\"gridVertical\": {\"solid\": {\"value\": \"true\"}}, \"gridHorizontal\": {\"solid\": {\"value\": \"true\"}}}}]}}, \"query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"player_of_match\"}, \"Name\": \"matches.player_of_match\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Total Matches\"}, \"Name\": \"matches.Total Matches\"}]}}",
+      "filters": "[]",
+      "query": "{\"Commands\": [{\"SemanticQueryDataShapeCommand\": {\"Query\": {\"Version\": 2, \"From\": [{\"Name\": \"m\", \"Entity\": \"matches\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"player_of_match\"}, \"Name\": \"matches.player_of_match\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Total Matches\"}, \"Name\": \"matches.Total Matches\"}]}, \"Binding\": {}}}]}"
+    }
+  ]
+}

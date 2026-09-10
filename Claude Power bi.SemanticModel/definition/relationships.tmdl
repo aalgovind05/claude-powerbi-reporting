@@ -7,3 +7,8 @@ relationship 80808080-8080-8080-8080-808080808080
 	fromColumn: matches.date
 	toColumn: DimDate.Date
 
+relationship 306879c3-a837-4b74-9fb8-546a3ae3a178
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDate.Date
+	toColumn: LocalDateTable_b8fbc639-b2d3-49c4-a3d6-e0eeb3db28be.Date
+

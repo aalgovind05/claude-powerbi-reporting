@@ -9,14 +9,15 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["matches","deliveries"]
+annotation PBI_QueryOrder = ["matches","deliveries","DimDate"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
 ref table matches
 ref table DateTableTemplate_28fe2c78-8a7b-44b3-b8f0-7b3f86c258f5
-ref table LocalDateTable_15845e65-6ccc-46f2-8873-6d43fe0aa9e8
 ref table deliveries
+ref table DimDate
+ref table LocalDateTable_b8fbc639-b2d3-49c4-a3d6-e0eeb3db28be
 
 ref cultureInfo en-US
 
