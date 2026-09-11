@@ -1,0 +1,65 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a06a3723f2f74e67a7f0",
+  "position": {
+    "x": 1280,
+    "y": 410,
+    "z": 698,
+    "height": 300,
+    "width": 600,
+    "tabOrder": 698
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "matches"
+                    }
+                  },
+                  "Property": "toss_decision"
+                }
+              },
+              "queryRef": "matches.toss_decision",
+              "nativeQueryRef": "toss_decision",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "matches"
+                    }
+                  },
+                  "Property": "Total Matches"
+                }
+              },
+              "queryRef": "matches.Total Matches",
+              "nativeQueryRef": "Total Matches",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

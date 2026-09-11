@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "36bbff70aa1641ce9ce2",
+  "position": {
+    "x": 490,
+    "y": 112,
+    "z": 899,
+    "height": 82,
+    "width": 430,
+    "tabOrder": 899
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "matches"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "matches.city",
+              "nativeQueryRef": "city",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

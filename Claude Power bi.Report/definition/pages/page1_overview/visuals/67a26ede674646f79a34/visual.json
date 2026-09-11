@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "67a26ede674646f79a34",
+  "position": {
+    "x": 40,
+    "y": 68,
+    "z": 999,
+    "height": 28,
+    "width": 1200,
+    "tabOrder": 999
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Use the filters to compare seasons, teams, locations, and toss choices",
+                    "textStyle": {
+                      "fontSize": "11pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#1F2937"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "2752747e0b624cd2bd6b",
+  "position": {
+    "x": 40,
+    "y": 750,
+    "z": 600,
+    "height": 290,
+    "width": 1840,
+    "tabOrder": 600
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "matches"
+                    }
+                  },
+                  "Property": "season"
+                }
+              },
+              "queryRef": "matches.season",
+              "nativeQueryRef": "season",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "matches"
+                    }
+                  },
+                  "Property": "date"
+                }
+              },
+              "queryRef": "matches.date",
+              "nativeQueryRef": "date",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "matches"
+                    }
+                  },
+                  "Property": "winner"
+                }
+              },
+              "queryRef": "matches.winner",
+              "nativeQueryRef": "winner",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "matches"
+                    }
+                  },
+                  "Property": "venue"
+                }
+              },
+              "queryRef": "matches.venue",
+              "nativeQueryRef": "venue",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "matches"
+                    }
+                  },
+                  "Property": "player_of_match"
+                }
+              },
+              "queryRef": "matches.player_of_match",
+              "nativeQueryRef": "player_of_match",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b4dd6e81a003c1d2e593",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "matches"
+              }
+            },
+            "Property": "season"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b91ee09fad04739823b5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "matches"
+              }
+            },
+            "Property": "date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "75917ee76a598d0a3c0a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "matches"
+              }
+            },
+            "Property": "winner"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e1b9c8428e0878e4119c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "matches"
+              }
+            },
+            "Property": "venue"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "549146327ca0218e9c09",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "matches"
+              }
+            },
+            "Property": "player_of_match"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "d455312d91c141b1a50c",
+  "position": {
+    "x": 660,
+    "y": 410,
+    "z": 699,
+    "height": 300,
+    "width": 600,
+    "tabOrder": 699
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "matches"
+                    }
+                  },
+                  "Property": "winner"
+                }
+              },
+              "queryRef": "matches.winner",
+              "nativeQueryRef": "winner",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "matches"
+                    }
+                  },
+                  "Property": "Championship Count"
+                }
+              },
+              "queryRef": "matches.Championship Count",
+              "nativeQueryRef": "Championship Count",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "86af45ea450e40359159",
+  "position": {
+    "x": 1390,
+    "y": 230,
+    "z": 797,
+    "height": 140,
+    "width": 490,
+    "tabOrder": 797
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "matches"
+                    }
+                  },
+                  "Property": "Most Winning Team"
+                }
+              },
+              "queryRef": "matches.Most Winning Team",
+              "nativeQueryRef": "Most Winning Team",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7e1feb05d04098e369ea",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "matches"
+              }
+            },
+            "Property": "Most Winning Team"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
